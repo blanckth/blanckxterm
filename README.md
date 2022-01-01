@@ -1,6 +1,7 @@
 # blanckxterm
 Bash Script - Automatic Custom Configuration for Termux to Deploy xfce Desktop Env with VNC without ROOT for android.
-#Authur : Salar Muhammadi.
+
+Authur : Salar Muhammadi.
 
 DOWNLOAD Termux App Here : https://f-droid.org/en/packages/com.termux/ and install it , Run Termux and Copy this and run :
 
