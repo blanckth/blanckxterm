@@ -25,8 +25,7 @@ declare -r vncDir="$HOME/.vnc"; ! [[ -d $vncDir ]] && mkdir $vncDir;
 #############################################################################
 fupg () {
 apt-get update;
-apt-get dist-upgrade -y;
-echo "$?" > "$isUpg";
+apt-get dist-upgrade -y && touch $isUpg;
 }
 uMotd () {
 local -r motdd="$etcDir/motd";
@@ -51,7 +50,7 @@ apt-get install x11-repo -y && apt-get update -y && apt-get upgrade -y && apt-ge
 cfgEsse () {
 	echo 'declare -i vncc=0; for vncl in `vncserver -list`; do vncc+=1; done;' >> "$etcDir/bash.bashrc";
 	echo '[[ $vncc -le 8 ]] && vncserver -name blanckxterm; vncserver -list;' >> "$etcDir/bash.bashrc";
-	echo "0" > $isCfgE;
+	touch $isCfgE;
 }
 vncSetup () {
 # VNC X Startup Config
@@ -78,7 +77,7 @@ SGR RSGR;
 echo;
 pingGo; echo; ! [[ "$?" -eq 0 ]] && ChColors FAILED && TypingS "Check Internet Connection and again Enter $aPp" 0.0123 && SGR RSGR && exit 111;
 local -i isUp;
-[[ -f $isUpg ]] && isUp=$( cat $isUpg ) && [[ $isUp -eq 0 ]] && echo || fupg && isUp=$( cat $isUpg ) && [[ $isUp -eq 0 ]] && echo || ChColors FAILED && TypingS "Check System Upgrade Error and again Enter $aPp" 0.0123 && SGR RSGR && exit 222;
+! [[ -f $isUpg ]] && fupg && ! [[ -f $isUpg ]] && ChColors FAILED && TypingS "Check System Upgrade Error and again Enter $aPp" 0.0123 && SGR RSGR && exit 222;
 insEsse && echo || ChColors FAILED && TypingS "Check Package install Error and again Enter $aPp" 0.0123 && SGR RSGR && exit 333;
 uMotd;
 declare -i vncc=0; for vncl in `vncserver -list`; do vncc+=1; done; [[ $vncc -le 8 ]] && vncSetup;
