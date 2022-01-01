@@ -1,0 +1,144 @@
+# Module Functions By Blanck
+# Authur Salar Muhammadi
+#########################################################################
+#########################################################################
+#########################################################################
+## SOURCE DIR SET
+SRCDIR () {
+local dir;
+local SOURCE="$1";
+while [ -h "$SOURCE" ]; do
+	dir="$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )";
+	SOURCE="$( readlink "$SOURCE" )";
+	[[ $SOURCE != /* ]] && SOURCE="$dir/$SOURCE";
+done;
+dir="$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )";
+echo "$dir";
+}
+#####################################################################################################################################################################################
+#####################################################################################################################################################################################
+# System Graphics Render
+SGR () {
+local -r RSGR='\e[0m'; # Reset
+local -r BOLD='\e[1m'; #Bold
+local -r FAINT='\e[2m'; #Faint
+local -r ITALIC='\e[3m'; #Italic
+local -r UNDERLINE='\e[4m'; #Underline
+local -r SBLINK='\e[5m'; # Slow Blink
+local -r RBLINK='\e[6m'; # Fast Blink
+local -r INVERT='\e[7m'; # Invert
+local -r HIDE='\e[8m'; #Hidden
+local -r STRIKE='\e[9m'; # Strikethrough
+local -r PFONT='\e[10m'; # Primary Font
+local -r GOTHIC='\e[20m'; # Gothic Font
+local -r DUNDER='\e[21m'; # Double Underline
+local -r NORMINTENS='\e[22m'; # Normal Intense
+local -r NOTIT='\e[23m'; # Not Italic
+local -r NOTUNDER='\e[24m'; # Not Underline
+local -r NOTBLINK='\e[24m'; # Not Blink
+local -r NOTINVERT='\e[27m'; # Not Invert
+local -r NOTSTRIKE='\e[29m'; # Not StrikeThrough
+local -r SUPERS='\e[73m'; # Super Script
+local -r SUBS='\e[74m'; # Sub Script
+local -r NOTSS='\e[75m'; # Not Sub or Super Script
+printf "${!1}";
+}
+###############################################################################################################################################################################
+# Change Terminal Colors
+ChColors () {
+local -r BBLACK='\e[40m';
+local -r FBLACK='\e[30m';
+local -r BWHITE='\e[47m';
+local -r FWHITE='\e[37m';
+local -r SUCCESS='\e[97;42m';
+local -r FAILED='\e[91;40m';
+local -r WAIT='\e[44;95m';
+local -r YNQ='\e[1;93;40m';
+local -r MENU='\e[1;96;40m';
+local -r MENUQ='\e[1;94;100m';
+printf "${!1}";
+}
+##########################################################################
+# Typing Word Function
+# ARGs [Req:Input] [Opt:Delay]
+Typing () {
+[[ $# -lt 1 ]] && echo 'Input String is Required!' && return 1;
+local -r Input="$1";
+local Delay=0;
+[[ $# -gt 1 ]] && Delay=$2;
+local -i -r InpLen=${#Input};
+sleep $Delay;
+for (( c=0; c<$InpLen; c++ ));
+do
+	echo -n ${Input:$c:1};
+	sleep $Delay;
+done;
+}
+#############################################################################
+# Typing String Function
+# ARGs [Req:Input String] [Opt:Delay]
+TypingS () {
+[[ $# -lt 1 ]] && echo 'Input String is Required!' && return 1;
+local -r string="$1";
+local Delay=0;
+[[ $# -gt 1 ]] && Delay="$2";
+for word in $string;
+do
+	Typing "$word" $Delay;
+	echo -n ' ';
+	sleep $Delay;
+done;
+}
+##################################################################################################################################################################################
+# Display Message
+# ARGs [Req:Input Message]
+DispMsg () {
+local -r MSG="$1";
+echo -e "\n";
+Typing "========>>" 0.00123;
+echo -n ' ';
+TypingS "$MSG" 0.00123;
+sleep 0.00123;
+}
+###################################################################################################################################################################################
+# Yes Or No Request
+# ARGs [Req: Message] [Opt:Default{0 or 1}]
+YNReq () {
+local -r req="$1";
+local -i def=1;
+local reqdef="(Y/n)";
+[[ $# -gt 1 && $2 -eq 0 ]] && reqdef="(y/N)" && def=0;
+ChColors YNQ;
+DispMsg "$req $reqdef =>>>";
+SGR RSGR;
+read ians;
+[[ "$ians" = "y" || "$ians" = "Y" ]] && return 1 || [[ "$ians" = "n" || "$ians" = "N" ]] && return 0 || return $def;
+}
+###############################################################################
+# Check Internet Connection
+pingGo () {
+local -i Conn=0;
+local -i status=0;
+while [ $Conn -eq 0 ];
+do
+	ChColors WAIT;
+	DispMsg "Let's Check the internet Connection...";
+	SGR RSGR;
+	echo;
+	ping -q -c2 google.com >/dev/null 2>&1;
+	status=$?;
+	if [[ $status -eq 0 ]];
+	then
+		ChColors SUCCESS;
+		DispMsg "Network is Online";
+		SGR RSGR;
+		Conn=1;
+	else
+		ChColors FAILED;
+		DispMsg "Network is Offline";
+		SGR RSGR;
+		YNReq "This Script Needs internet Connection. Do you want to Retry?" && break;
+	fi;
+done;
+return $status;
+}
