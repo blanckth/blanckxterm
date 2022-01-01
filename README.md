@@ -9,7 +9,7 @@ then do this :
 
 ./blanckterm.sh
 OR 
-bash blanckxterm.sh
+bash blanckterm.sh
 
 after successfully Configure Terminal and reset the session you can reach desktop Env with a VNC app like this https://f-droid.org/en/packages/com.gaurav.avnc/ at localhost:1
 
