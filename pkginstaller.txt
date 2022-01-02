@@ -84,7 +84,6 @@ libc-client
 libdaemon
 libde265
 libelf
-libfdk-acc
 libfm-extra
 libfm
 libgfshare
