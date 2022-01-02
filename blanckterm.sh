@@ -58,7 +58,7 @@ local -r vncXS="$vncDir/xstartup";
 vncserver :13 -name blanckxterm -localhost;
 vncserver -kill :13;
 cat "xstartup" > $vncXS;
-vncserver :13 -name blanckxterm -localhost;
+vncserver :13 -name blanckxterm;
 vncserver -list;
 touch $isVnc;
 }
