@@ -3,7 +3,7 @@
 > ### Authur : **`Salar Muhammadi`**.
 ###### DOWNLOAD [Termux App](https://f-droid.org/en/packages/com.termux/) and install it , Run and Copy this command and run :
 ```bash
-apt-get update -y && \
+$ apt-get update -y && \
 apt-get dist-upgrade -y && \
 apt-get install git -y && \
 git clone https://github.com/blanckth/blanckxterm.git && \
