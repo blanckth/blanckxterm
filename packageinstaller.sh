@@ -4,9 +4,7 @@
 ###################################
 declare instl="pkginstaller.txt";
 [[ "$#" -gt 0 ]] && instl="$1";
-declare cmnd='apt-get install ';
 while read line; do
-  cmnd+="$line "
+  apt-get install "$line" -y;
 done < "$instl";
-`$cmnd`;
 ##################################
