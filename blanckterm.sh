@@ -51,14 +51,14 @@ apt-get install x11-repo -y && apt-get update -y && apt-get upgrade -y && apt-ge
 cfgEsse () {
 	echo 'export DISPLAY="localhost:0"' >> "$etcDir/bash.bashrc";
 	echo 'declare -i vncc=0; for vncl in `vncserver -list`; do vncc+=1; done;' >> "$etcDir/bash.bashrc";
-	echo '[[ $vncc -gt 8 ]] && vncserver -kill :13; vncserver :13 -name blanckxterm -geometry 2333x1080 -localhost; vncserver -list;' >> "$etcDir/bash.bashrc";
+	echo '[[ $vncc -gt 8 ]] && vncserver -kill :13; vncserver :13 -name blanckxterm -localhost; vncserver -list;' >> "$etcDir/bash.bashrc";
 	touch $isCfgE;
 }
 vncSetup () {
 # VNC X Startup Config
 local -r vncXS="$vncDir/xstartup";
 # VNC Start
-vncserver :13 -name blanckxterm -geometry 1920x1080 -localhost;
+vncserver :13 -name blanckxterm -localhost;
 vncserver -list;
 echo '#!/usr/bin/env bash' > $vncXS;
 echo "xfce4-session &" >> $vncXS;
