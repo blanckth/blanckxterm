@@ -2,8 +2,11 @@
 # Large Installation for Termux App
 # Authur : Salar Muhammadi
 ###################################
-declare -r instl="instl.txt";
+declare instl="pkginstaller.txt";
+[[ $# -gt 0 ]] && instl="$1";
+declare cmnd='apt-get install ';
 while read line; do
-  apt-get install $line -y;
-done < $instl;
+  cmnd+="$line "
+done < $pkginstaller;
+`$cmnd`;
 ##################################
