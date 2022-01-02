@@ -8,7 +8,7 @@ Contact Me : "+989333747467"
 * Install a Package: pkg install <package>
 * Upgrade Packages: pkg upgrade
 ==========================
-+- View VNC : vncserver -list
--- kill VNC : vncserver -kill :<number>
-++ Run VNC : vncserver [-name <blanckxterm>]
++- View VNC : vncl
+-- kill VNC : vnck
+++ Run VNC : vnc
 ==========================
