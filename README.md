@@ -8,5 +8,5 @@ apt-get update -y && apt-get dist-upgrade -y && apt-get install git -y && git cl
 > ###### Be Patience...
 #### after successfully Configure Terminal and reset the session you can reach desktop Env 
 #### with a VNC app like [AVNC](https://f-droid.org/en/packages/com.gaurav.avnc/) at localhost:13
+##### Enjoy!
 ![Termux Desktop Env XFCE](TermuxXfce.jpg)
-Enjoy!
