@@ -45,7 +45,8 @@ dnsutils-static
 dnsutils
 dotconf
 dotconf-static
-dosfstoolse2fsprogs
+dosfstools
+e2fsprogs
 exiftool
 fakeroot
 fakeroot-static
