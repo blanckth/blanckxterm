@@ -1,5 +1,4 @@
 # blanckxterm
-
 ##Bash Script - Automatic Custom Configuration for Termux to Deploy xfce Desktop Env with VNC without ROOT for android.
 
 ###Authur : Salar Muhammadi.
