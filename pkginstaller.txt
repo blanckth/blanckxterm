@@ -12,7 +12,9 @@ autoconf
 automake
 avahi
 avahi-static
+asciinema
 barcode
+bc
 bftpd
 bmon
 build-essential
@@ -26,6 +28,7 @@ cmake-curses-gui
 cowsay
 crunch
 cryptopp
+curl
 daemonize
 dasm
 db
@@ -50,6 +53,7 @@ figlet
 fsmon
 gdb
 glu
+git
 git-gui
 gnuit
 gnunet-static
@@ -69,6 +73,7 @@ ipcalc
 iperf3
 iproute2
 kotlin
+lf
 libacl-static
 libacl
 libao
@@ -97,17 +102,21 @@ libzip
 lighttpd
 littlecms-utils
 lldb
+man
 manpages
 mariadb
 megatools
 megacmd
 nasm
+ncurses-utils
+ncurses-ui-libs-static
 ndk-multilib
 netcat-openbsd
 netsurf
 nettle
 nginx
 ninja
+nmap
 obfs4proxy
 ocl-icd
 oniguruma
@@ -118,6 +127,8 @@ openssl-tool
 parted
 pdf2djvu
 php*
+picom
+putty
 progress
 python-tkinter
 qemu-common
@@ -138,6 +149,7 @@ qemu-user-riscv32
 qemu-user-riscv64
 qemu-user-x86-64
 qemu-utils
+qt5-qtx11extras
 rtorrent
 ruby-ri
 ruby
@@ -203,6 +215,7 @@ wasmer
 watchexec
 wdiff
 webkit2gtk
+wget
 whiptail
 wireguard-tools
 wireshark-gtk-static
@@ -228,6 +241,8 @@ xcb-util-wm-static
 xcb-util-xrm-static
 xcb-util-xrm
 xcompmgr
+xfconf
+xfconf-static
 xmake
 xpdf
 zsh
