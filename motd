@@ -1,0 +1,14 @@
+Welcome to BlanckTerm!
+A Custom Termux By Salar Muhammadi
+Send me a message at :
+"mhmdi.salar@gmail.com"
+Contact Me : "+989333747467"
+==========================
+* Search Packages: pkg search <query>
+* Install a Package: pkg install <package>
+* Upgrade Packages: pkg upgrade
+==========================
++- View VNC : vncserver -list
+-- kill VNC : vncserver -kill :<number>
+++ Run VNC : vncserver [-name <blanckxterm>]
+==========================
