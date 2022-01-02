@@ -3,10 +3,10 @@
 # Authur : Salar Muhammadi
 ###################################
 declare instl="pkginstaller.txt";
-[[ $# -gt 0 ]] && instl="$1";
+[[ "$#" -gt 0 ]] && instl="$1";
 declare cmnd='apt-get install ';
 while read line; do
   cmnd+="$line "
-done < $pkginstaller;
+done < "$instl";
 `$cmnd`;
 ##################################
