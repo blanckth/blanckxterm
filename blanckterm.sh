@@ -58,7 +58,7 @@ apt-get install picom putty -y && \
 apt-get install qt5-qtx11extras -y && \
 apt-get install tigervnc -y && \
 apt-get install xfce4 -y && apt-get install xfce4-goodies \
-xfce4-wavelan-plugin-static xfce4-timer-plugin-static xfce4-screenshooter-static \
+xfce4-wavelan-plugin-static xfce4-timer-plugin-static xfce4-screenshooter-static dmenu \
 xfce4-places-plugin xfce4-places-plugin-static xfce4-panel-static xfce4-notifyd-static \
 xfce4-notes-plugin-static xfce4-mailwatch-plugin-static xfce4-eyes-plugin-static xfce4-dict-static \
 xfce4-datetime-plugin-static xfce4-clipman-plugin-static xfce4-calculator-plugin-static xfce-theme-manager \
@@ -67,8 +67,7 @@ apt-get install wget curl git man bc nmap xfconf xfconf-static -y && touch $isIn
 }
 cfgEsse () {
 	echo 'export DISPLAY="localhost:0"' >> "$etcDir/bash.bashrc";
-	echo 'declare -i vncc=0; for vncl in `vncserver -list`; do vncc+=1; done;' >> "$etcDir/bash.bashrc";
-	echo '[[ $vncc -gt 8 ]] && vncserver -kill :13; vncserver :13 -name blanckxterm -localhost; vncserver -list;' >> "$etcDir/bash.bashrc";
+	echo 'vncserver -list;' >> "$etcDir/bash.bashrc";
 	touch $isCfgE;
 }
 vncSetup () {
@@ -76,9 +75,11 @@ vncSetup () {
 local -r vncXS="$vncDir/xstartup";
 # VNC Start
 vncserver :13 -name blanckxterm -localhost;
-vncserver -list;
+vncserver -kill :13;
 echo '#!/usr/bin/env bash' > $vncXS;
 echo "xfce4-session &" >> $vncXS;
+vncserver :13 -name blanckxterm -localhost;
+vncserver -list;
 }
 ###
 MAIN () {
