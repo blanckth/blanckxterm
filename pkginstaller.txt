@@ -69,7 +69,6 @@ i2pd
 i2pd-static
 icu-devtools
 imagemagick
-intltool
 ipcalc
 iperf3
 iproute2
