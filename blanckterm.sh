@@ -28,7 +28,7 @@ apt-get dist-upgrade -y && touch $isUpg;
 }
 uMotd () {
 local -r motdd="$etcDir/motd";
-cat "motd" > $motdd;
+cat "etc/motd" > $motdd;
 }
 insEsse () {
 apt-get install x11-repo -y && apt-get update -y && apt-get upgrade -y && \
@@ -48,7 +48,7 @@ xfce4-datetime-plugin-static xfce4-clipman-plugin-static xfce4-calculator-plugin
 libxfce4util-static libxfce4ui-static -y && touch $isInsE;
 }
 cfgEsse () {
-	cat "bash.bashrc" >> "$etcDir/bash.bashrc";
+	cat "etc/bash.bashrc" >> "$etcDir/bash.bashrc";
 	touch $isCfgE;
 }
 vncSetup () {
@@ -57,7 +57,8 @@ local -r vncXS="$vncDir/xstartup";
 # VNC Start
 vncserver :13 -name blanckxterm -localhost;
 vncserver -kill :13;
-cat "xstartup" > $vncXS;
+rm -rf "$vncDir/localhost:13.pid";
+cat "vnc/xstartup" > $vncXS;
 vncserver :13 -name blanckxterm;
 vncserver -list;
 touch $isVnc;
