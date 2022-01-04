@@ -13,7 +13,7 @@ chmod +x blanckterm.sh && \
 ```
 > ###### Be Patience...
 ##### after successfully Configure Terminal and reset the session you can reach desktop Env 
-##### with a VNC app like [AVNC](https://f-droid.org/en/packages/com.gaurav.avnc/) at localhost:13
+##### with a VNC app like [AVNC](https://f-droid.org/en/packages/com.gaurav.avnc/) at localhost:5913
 ###### if you want bigger packages then do :
 ```bash
 chmod +x packageinstaller.sh && \
