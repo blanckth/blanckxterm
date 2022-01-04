@@ -40,6 +40,7 @@ libx11-static libxss -y && \
 apt-get install termux-x11 termux-auth termux-exec termux-create-package termux-services \
 termux-elf-cleaner termux-apt-repo termux-api termimage -y && \
 apt-get install tigervnc -y && \
+apt-get install qemu* -y && \
 apt-get install xfce4 -y && apt-get install xfce4-goodies \
 xfce4-wavelan-plugin-static xfce4-timer-plugin-static xfce4-screenshooter-static dmenu \
 xfce4-places-plugin xfce4-places-plugin-static xfce4-panel-static xfce4-notifyd-static \
