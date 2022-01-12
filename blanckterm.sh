@@ -33,7 +33,7 @@ cat "etc/motd" > $motdd;
 insEsse () {
 apt-get install x11-repo -y && apt-get update -y && apt-get upgrade -y && \
 apt-get install proot -y && \
-apt-get install xorg-fonts-100dpi xorg-iceauth xorg-luit xorg-server xorg-server-static \
+apt-get install openssh-server xorg-fonts-100dpi xorg-iceauth xorg-luit xorg-server xorg-server-static \
 xorg-twm xorg-util-macros xorg-xcalc xorg-xclock xorg-xdpyinfo xorg-xev xorg-xhost xorg-xlsfonts \
 xorg-xmessage xorg-xprop xorg-xrandr xorg-xrdb xorg-xsetroot xorg-xwininfo xorgproto \
 libx11-static libxss -y && \
